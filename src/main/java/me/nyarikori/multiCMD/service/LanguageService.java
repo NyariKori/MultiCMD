@@ -19,6 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class LanguageService implements Lifecycle {
     @Autowired
     private Plugin plugin;
+
     @Autowired
     private ConfigService configService;
 

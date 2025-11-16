@@ -17,8 +17,10 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 public class CommandListener implements Listener {
     @Autowired
     private MiniMessage miniMessage;
+
     @Autowired
     private ConfigService configService;
+
     @Autowired
     private LanguageService languageService;
 
@@ -31,6 +33,10 @@ public class CommandListener implements Listener {
             return;
         }
 
+        if (!(boolean) configService.get("enabled-for-any-command")) {
+            return;
+        }
+
         String commandMessage = event.getMessage().replaceFirst("/", "");
         
         if (!commandMessage.contains("&")) {
@@ -40,7 +46,6 @@ public class CommandListener implements Listener {
         String[] multicommands = commandMessage.split(configService.get("command-separator-symbol"));
 
         for (String command : multicommands) {
-            System.out.println(command);
             player.performCommand(command);
         }
 

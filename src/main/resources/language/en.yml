@@ -3,4 +3,7 @@ disabled-message: 'Plugin disabled'
 
 reload-message: '<green>Plugin successful reloaded!'
 
-no-permission-message: 'You dont have perms to do this'
+no-permission-message: '<red>You dont have perms to do this'
+no-separator-message: '<red>Command doesnt contains separator!'
+
+multicmd-use-message: '<yellow>[<white>MultiCMD<yellow>] <white>succesful used commands.'

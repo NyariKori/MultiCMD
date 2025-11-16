@@ -17,6 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ConfigService implements Lifecycle {
     @Autowired
     private Plugin plugin;
+
     private final Map<String, Object> configurationMap = new ConcurrentHashMap<>();
 
     @Override
@@ -28,7 +29,7 @@ public class ConfigService implements Lifecycle {
     public void reload() {
         plugin.reloadConfig();
 
-        ConfigurationSection section = plugin.getConfig().getConfigurationSection("configuration");
+        ConfigurationSection section = plugin.getConfig().getConfigurationSection("");
 
         if(section == null) {
             plugin.getLogger().severe("[ConfigService] The config does not contain a configuration section.");

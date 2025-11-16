@@ -1,0 +1,6 @@
+enabled-message: 'Plugin enabled'
+disabled-message: 'Plugin disabled'
+
+reload-message: '<green>Plugin successful reloaded!'
+
+no-permission-message: 'You dont have perms to do this'

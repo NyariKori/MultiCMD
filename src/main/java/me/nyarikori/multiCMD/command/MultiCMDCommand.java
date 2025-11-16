@@ -1,4 +1,36 @@
 package me.nyarikori.multiCMD.command;
 
+import dev.rollczi.litecommands.annotations.async.Async;
+import dev.rollczi.litecommands.annotations.command.Command;
+import dev.rollczi.litecommands.annotations.context.Context;
+import dev.rollczi.litecommands.annotations.execute.Execute;
+import dev.rollczi.litecommands.annotations.permission.Permission;
+import me.nyarikori.commons.annotation.Autowired;
+import me.nyarikori.commons.annotation.Component;
+import me.nyarikori.commons.annotation.command.CommandType;
+import me.nyarikori.commons.annotation.command.NCommand;
+import me.nyarikori.multiCMD.service.ConfigService;
+import me.nyarikori.multiCMD.service.LanguageService;
+import net.kyori.adventure.text.minimessage.MiniMessage;
+import org.bukkit.command.CommandSender;
+
+@Component
+@NCommand(commandType = CommandType.LITE_COMMANDS)
+@Command(name = "mcmd", aliases = {"multicmd", "multicommand", "multicommands"})
 public class MultiCMDCommand {
+    @Autowired
+    private MiniMessage miniMessage;
+    @Autowired
+    private ConfigService configService;
+    @Autowired
+    private LanguageService languageService;
+
+    @Async
+    @Execute(name = "reload")
+    @Permission("multicmd.reload")
+    void reload(@Context CommandSender sender) {
+        configService.reload();
+        languageService.reload();
+        sender.sendMessage(miniMessage.deserialize(languageService.getMessage("reload-message")));
+    }
 }

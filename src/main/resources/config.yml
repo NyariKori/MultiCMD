@@ -1,0 +1,3 @@
+configuration:
+  locale: en
+  command-separator-symbol: '&'

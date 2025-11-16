@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author NyariKori
  */
 @Service
-public class ConfigurationService implements Lifecycle {
+public class ConfigService implements Lifecycle {
     @Autowired
     private Plugin plugin;
     private final Map<String, Object> configurationMap = new ConcurrentHashMap<>();

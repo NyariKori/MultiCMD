@@ -10,6 +10,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
+/**
+ * @author NyariKori
+ */
 @Component
 public class CommandListener implements Listener {
     @Autowired

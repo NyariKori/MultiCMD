@@ -14,6 +14,9 @@ import me.nyarikori.multiCMD.service.LanguageService;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.CommandSender;
 
+/**
+ * @author NyariKori
+ */
 @Component
 @NCommand(commandType = CommandType.LITE_COMMANDS)
 @Command(name = "mcmd", aliases = {"multicmd", "multicommand", "multicommands"})
